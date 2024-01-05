@@ -24,6 +24,7 @@ public class LoanCalc {
 		System.out.println();
 		System.out.println("number of iterations: " + iterationCounter);
 
+
 		// Computes the periodical payment using bisection search
 		System.out.print("Periodical payment, using bi-section search: ");
 		System.out.printf("%.2f", bisectionSolver(loan, rate, n, epsilon));
@@ -39,8 +40,16 @@ public class LoanCalc {
 	*/
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
-    	// Replace the following statement with your code
-    	return 0;
+    double guess = loan / n;
+    double increment = 0.1;
+ 	double balance = endBalance( loan , rate , n , guess ) ; 
+ 	iterationCounter = 0 ;
+ 	while (balance >= epsilon) {
+ 		guess += increment ;
+ 		balance = endBalance( loan , rate , n , guess ) ;
+ 		iterationCounter++;
+ 	}
+   	return guess ;
     }
     
     /**
@@ -51,8 +60,22 @@ public class LoanCalc {
 	*/
 	// Side effect: modifies the class variable iterationCounter.
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-    	// Replace the following statement with your code
-    	return 0;
+    	double l = loan / n ;
+    	double h = loan ;
+    	double guess = ( l + h ) / 2 ;
+    	iterationCounter = 0;
+    	while ( (h - l) > epsilon) ; 
+    	{
+    		if ( endBalance(loan , rate , n , guess) * endBalance(loan , rate , n , l) > 0 ) {
+    			l = guess ;
+    		}
+    		else {
+    			h = guess ;
+    		}
+    		guess = (l + h) / 2 ;
+    		iterationCounter++;
+    	}
+    	return guess ;
     }
 	
 	/**
@@ -60,7 +83,10 @@ public class LoanCalc {
 	* interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	*/
 	private static double endBalance(double loan, double rate, int n, double payment) {
-		// Replace the following statement with your code
-    	return 0;
+		double balance = loan ;
+    		for (int i = 0 ; i < n ; i++) {
+    			balance = ( balance - payment ) + balance * 0.01 * rate ;
+    		}
+    	return balance;
 	}
 }

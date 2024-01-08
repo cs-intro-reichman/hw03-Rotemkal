@@ -44,7 +44,7 @@ public class LoanCalc {
     double increment = 0.001;
  	double balance = endBalance( loan , rate , n , guess ) ; 
  	iterationCounter = 0 ;
- 	while (balance >= epsilon) {
+ 	while (balance >= epsilon && balance >= 0) {
  		guess += increment ;
  		balance = endBalance( loan , rate , n , guess ) ;
  		iterationCounter++;

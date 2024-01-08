@@ -64,7 +64,7 @@ public class LoanCalc {
     	double h = loan ;
     	double guess = ( l + h ) / 2 ;
     	iterationCounter = 0;
-    	while ( (h - l) > epsilon) ; 
+    	while ( (h - l) > epsilon)
     	{
     		if ( endBalance(loan , rate , n , guess) * endBalance(loan , rate , n , l) > 0 ) {
     			l = guess ;

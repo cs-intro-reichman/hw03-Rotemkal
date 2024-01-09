@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Calendar",
+            "request": "launch",
+            "mainClass": "Calendar",
+            "projectName": "hw03-Rotemkal_d57b2851"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "Calendar",
+            "args": [
+                "2000"
+            ]
+        }
+    ]
+}

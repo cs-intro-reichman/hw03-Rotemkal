@@ -15,14 +15,14 @@ public class Calendar {
 	 	while ((year != Myyear) ||  (month != 1) || (dayOfMonth != 1)) {
 	 		advance(); 
 	 		}
-	 		while ((year != Myyear + 1) ||  (month != 1) || (dayOfMonth != 1)) {
-				if (dayOfWeek == 1){
-					System.out.println(dayOfMonth+"/"+month+"/"+year+" sunday");
-				}
-				else {
-					System.out.println(dayOfMonth+"/"+month+"/"+year);
-				}
-				advance();
+	 	while ((year != Myyear + 1) ||  (month != 1) || (dayOfMonth != 1)) {
+			if (dayOfWeek == 1){
+				System.out.println(dayOfMonth+"/"+month+"/"+year+" Sunday");
+			}
+			else {
+				System.out.println(dayOfMonth+"/"+month+"/"+year);
+			}
+			advance();
 	 		}
 	}
 
